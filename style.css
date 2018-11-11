@@ -1,0 +1,7 @@
+body {
+  color: red; }
+
+.block {
+  display: flex;
+  flex-direction: column;
+  color: red; }
