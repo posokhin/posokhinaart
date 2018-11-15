@@ -29,6 +29,12 @@
   align-items: flex-end;
   justify-content: center; }
 
+.footer__links {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 25px;
+  margin-bottom: 5px; }
+
 .footer__social a {
   border-radius: 50%;
   background-color: white;
@@ -38,4 +44,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 5px; }
+  margin-right: 5px; }
+
+.footer__social a:last-child {
+  margin: 0; }
+
+.footer__social p {
+  color: #f2ce51;
+  font-size: 1.25em; }
