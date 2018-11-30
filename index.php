@@ -1,84 +1,47 @@
-    <?php get_header()?>
+<?php get_header()?>
         <section class="main">
             <div class="container">
                 <div class="main__wrap">
                     <section class="posts">
+                        <?$page = (get_query_var('paged')) ? get_query_var('paged') : 1;?>
+                        <? $args = array(
+                            'post_type' => array('thoughts','creativity','brain'),
+                            'numberposts' => 5,
+                            'category'    => 0,
+                            'orderby'     => 'date',
+                            'order'       => 'DESC',
+                            'paged'       => $page,
+                            'suppress_filters' => true // подавление работы фильтров изменения SQL запроса);
+                        );
+                        ?>
+                        <?query_posts($args)?>
+                        <?php while(have_posts()):the_post();?>
                         <div class="post">
-                            <div class="post__img">
-                                <img src="<?php echo get_template_directory_uri()?>/assets/img/posts/post.png" alt="post">
+                            <div class="post__img" style="background:url(<?php the_post_thumbnail_url ();?>) center no-repeat;background-size:contain;" style="background-size: cover;">
                             </div>
                             <div class="post__content">
-                                <h2 class="post__title">Как не сойти с ума</h2>
-                                <p class="post__date">11.11.2018</p>
-                                <p class="post__text">Тонкое тесто из гречневой и полбяной муки и много-много яблок с
-                                    корицей,
-                                    ммм! Лучше вкусного яблочного пирога может быть только вкусный яблочный пирог,
-                                    который
-                                    для
-                                    вас
-                                    кто-нибудь приготовит. С удовольствием бы проснулась в выходные от аромата этого
-                                    пирога
-                                    в
-                                    духовке (видимо придётся встать пораньше, чтобы приготовить пирог, а выключив
-                                    духовку,
-                                    снова
-                                    лечь спать).
-                                </p>
-                                <div class="btn_more"><a href="">читать больше</a></div>
+                                <h2 class="post__title"><?php the_title()?></h2>
+                                <p class="post__date"><?php echo get_the_date()?></p>
+                                <div class="post__text"><?php the_excerpt()?></div>
+                                <div class="btn_more"><a href="<?php the_permalink();?>">читать больше</a></div>
                             </div>
                         </div>
-                        <div class="post">
-                            <div class="post__img">
-                                <img src="<?php echo get_template_directory_uri()?>/assets/img/posts/post.png" alt="post">
-                            </div>
-                            <div class="post__content">
-                                <h2 class="post__title">Как не сойти с ума</h2>
-                                <p class="post__date">11.11.2018</p>
-                                <p class="post__text">Тонкое тесто из гречневой и полбяной муки и много-много яблок с
-                                    корицей,
-                                    ммм! Лучше вкусного яблочного пирога может быть только вкусный яблочный пирог,
-                                    который
-                                    для
-                                    вас
-                                    кто-нибудь приготовит. С удовольствием бы проснулась в выходные от аромата этого
-                                    пирога
-                                    в
-                                    духовке (видимо придётся встать пораньше, чтобы приготовить пирог, а выключив
-                                    духовку,
-                                    снова
-                                    лечь спать).
-                                </p>
-                                <div class="btn_more"><a href="">читать больше</a></div>
-                            </div>
-                        </div>
-                        <div class="post">
-                            <div class="post__img">
-                                <img src="<?php echo get_template_directory_uri()?>/assets/img/posts/post.png" alt="post">
-                            </div>
-                            <div class="post__content">
-                                <h2 class="post__title">Как не сойти с ума</h2>
-                                <p class="post__date">11.11.2018</p>
-                                <p class="post__text">Тонкое тесто из гречневой и полбяной муки и много-много яблок с
-                                    корицей,
-                                    ммм! Лучше вкусного яблочного пирога может быть только вкусный яблочный пирог,
-                                    который
-                                    для
-                                    вас
-                                    кто-нибудь приготовит. С удовольствием бы проснулась в выходные от аромата этого
-                                    пирога
-                                    в
-                                    духовке (видимо придётся встать пораньше, чтобы приготовить пирог, а выключив
-                                    духовку,
-                                    снова
-                                    лечь спать).
-                                </p>
-                                <div class="btn_more"><a href="">читать больше</a></div>
-                            </div>
-                        </div>
-                        <section class="pag">
-                            <a href="" class="pag__prev"><i class="fas fa-angle-left row-left"></i>ТУДА</a>
-                            <a href="" class="pag__next">СЮДА<i class="fas fa-angle-left row-right"></i></a>
-                        </section>
+                        <?endwhile?>
+                        <?wp_reset_postdata()?>
+                        
+                        <? the_posts_pagination(
+                            array(
+                                'show_all'     => true, // показаны все страницы участвующие в пагинации
+                                'end_size'     => 1,     // количество страниц на концах
+                                'mid_size'     => 1,     // количество страниц вокруг текущей
+                                'prev_next'    => true,  // выводить ли боковые ссылки "предыдущая/следующая страница".
+                                'prev_text'    => __('Предидущая'),
+                                'next_text'    => __('Следующая'),
+                                'add_args'     => false, // Массив аргументов (переменных запроса), которые нужно добавить к ссылкам.
+                                'add_fragment' => '',     // Текст который добавиться ко всем ссылкам.
+                                'screen_reader_text' => __( 'Posts navigation' ),
+                            )
+                        ) ?>
                     </section>
                     <?php get_sidebar()?>
                 </div>

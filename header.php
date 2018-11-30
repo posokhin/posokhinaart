@@ -5,20 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Posokhina Art</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
-        crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Playfair+Display:400,700&amp;subset=cyrillic"
-        rel="stylesheet">
+    <?php wp_head()?>
 </head>
 
 <body>
     <div class="wrapper">
         <header class="header">
             <div class="header__wrap">
-                <div class="header__top">posokhina evgeniya</div>
+                <div class="header__top"><a href="<?php echo get_home_url()?>">posokhina evgeniya</a></div>
                 <div class="header__middle">
                     <div class="container">
                         <div class="header__middle-wrap">
@@ -53,6 +47,7 @@
                                     </a>
                                 </div>
                             </div>
+                            <div class="header__burger"><i class="fas fa-bars burger"></i></div>
                         </div>
                     </div>
                 </div>
@@ -67,5 +62,5 @@
             </div>
             <div class="header__alpaco-min"><img src="<?php echo get_template_directory_uri()?>/assets/img/header/alpaco-min.png" alt=""></div>
             <div class="header__alpaco-big"><img src="<?php echo get_template_directory_uri()?>/assets/img/header/alpaco-big.png" alt=""></div>
-            <?php wp_head()?>
         </header>
+        
