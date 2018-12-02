@@ -86,7 +86,7 @@
         width: 100%;
         margin: 0;
     }
-    .post{
+    .post__wrap{
         flex-direction: column;
         width: 80%;
         margin: 0 auto;
@@ -103,9 +103,25 @@
         width: 100%;
         margin: 0;
     }
+    .post__text{
+        position: relative;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .post__text:before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 50px;
+        position: absolute;
+        bottom: -10px;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), #ffffff 95%);
+    }
     .btn_more{
-        margin-left: 65%;
-        margin-top: 8%;
+        margin: 0 auto;
+        width: 90%;
+        bottom: 10px;
+        right: 5%;
     }
     .btn_up{
         top: 80%;
@@ -281,9 +297,6 @@
     .post__content{
         width: 50%;
         margin: 0;
-    }
-    .post_text{
-
     }
     .btn_more{
         margin-left: 65%;

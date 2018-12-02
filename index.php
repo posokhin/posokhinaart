@@ -27,14 +27,16 @@ else {
                         <?query_posts($args)?>
                         <?php while(have_posts()):the_post();?>
                         <div class="post">
-                            <div class="post__img" style="background:url(<?php the_post_thumbnail_url ();?>) center no-repeat;background-size:contain;" style="background-size: cover;">
+                            <div class="post__wrap">
+                                <div class="post__img" style="background:url(<?php the_post_thumbnail_url ();?>) center no-repeat;background-size:contain;" style="background-size: cover;">
+                                </div>
+                                <div class="post__content">
+                                    <h2 class="post__title"><?php the_title()?></h2>
+                                    <p class="post__date"><?php echo get_the_date()?></p>
+                                    <div class="post__text"><?php the_excerpt()?></div>
+                                </div>
                             </div>
-                            <div class="post__content">
-                                <h2 class="post__title"><?php the_title()?></h2>
-                                <p class="post__date"><?php echo get_the_date()?></p>
-                                <div class="post__text"><?php the_excerpt()?></div>
-                                <div class="btn_more"><a href="<?php the_permalink();?>">читать больше</a></div>
-                            </div>
+                            <div class="btn_more"><a href="<?php the_permalink();?>">читать больше</a></div>
                         </div>
                         <?endwhile?>
                         <?wp_reset_postdata()?>
