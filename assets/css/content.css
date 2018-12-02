@@ -12,7 +12,6 @@
     justify-content: space-between; }
   .content__date {
     font-size: 1.5em;
-    margin-right: 10px;
     color: #f1a000;
     font-weight: bold; }
   .content__dot {

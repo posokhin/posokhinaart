@@ -68,12 +68,14 @@
 .widget-copyright {
   display: none !important; }
 
+.pagination {
+  margin-top: 20px; }
+
 .nav-links {
   display: flex;
   justify-content: center;
   font-size: 1.2em;
-  font-weight: bold;
-  margin-top: 50px; }
+  font-weight: bold; }
 
 .current {
   color: white; }
@@ -84,3 +86,10 @@
   padding: 10px;
   border-radius: 2px;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; }
+
+.btn_up {
+  position: fixed;
+  top: 80%;
+  right: 7vw;
+  font-size: 50px;
+  cursor: pointer; }
