@@ -1,4 +1,14 @@
-<?php get_header()?>
+<?php
+if ( is_front_page()){
+	get_header();
+}
+else if( get_query_var('paged')){
+    get_header();
+}
+else {
+	get_header('change');
+}
+?>
         <section class="main">
             <div class="container">
                 <div class="main__wrap">
@@ -43,6 +53,7 @@
                             )
                         ) ?>
                     </section>
+                    <div class="btn_up"><i class="fas fa-angle-up"></i></i></div>
                     <?php get_sidebar()?>
                 </div>
             </div>

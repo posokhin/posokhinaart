@@ -51,14 +51,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="header__bottom">
-                    <div class="container">
-                        <div class="header__bottom-wrap">
-                            <p>welcome <br> to my world</p>
-                            <div class="header__bottom-img"><img src="<?php echo get_template_directory_uri()?>/assets/img/header/bottom-logo.png" alt=""></div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="header__alpaco-min"><img src="<?php echo get_template_directory_uri()?>/assets/img/header/alpaco-min.png" alt=""></div>
             <div class="header__alpaco-big"><img src="<?php echo get_template_directory_uri()?>/assets/img/header/alpaco-big.png" alt=""></div>
